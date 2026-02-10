@@ -19,7 +19,7 @@
  *   - Summer + temp > 35    → "swimming"
  *   - Summer + temp <= 35   → "cycling"
  *   - Autumn + temp > 15    → "nature walk"
- *   - Autumn + temp <= 15   → "reading at a cafe"
+ *   - Aifutumn + temp <= 15   → "reading at a cafe"
  *
  * Return an object: { season: string, activity: string }
  *
@@ -32,4 +32,25 @@
  */
 export function getSeasonActivity(month, temperature) {
   // Your code here
+  let season = "";
+  let activity = "";
+  if (month < 1 || month > 12) return null;
+  if (month >= 3 && month <= 5) {
+    season = "Spring";
+    if (temperature > 20) activity = "hiking";
+    else activity = "museum visit";
+  } else if (month >= 6 && month <= 8) {
+    season = "Summer";
+    if (temperature > 35) activity = "swimming";
+    else activity = "cycling";
+  } else if (month >= 9 && month <= 11) {
+    season = "Autumn";
+    if (temperature > 15) activity = "nature walk";
+    else activity = "reading at a cafe";
+  } else {
+    season = "Winter";
+    if (temperature < 0) activity = "skiing";
+    else activity = "ice skating";
+  }
+  return { season: season, activity: activity };
 }
